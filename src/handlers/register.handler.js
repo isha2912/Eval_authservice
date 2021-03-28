@@ -7,6 +7,7 @@ const registerHandler = async (req, res) => {
     const registerUser = await registerService.createUser(username, password, user_details);
     res.status(201).send(registerUser);
   } catch (error) {
+    console.log(error);
     res.status(500).send();
   }
 };

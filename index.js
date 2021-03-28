@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const path = require('path');
 const appRoot = require('app-root-path');
+const cors = require('cors');
 
 if (process.env.NODE_APP_ENV === 'local') {
   const pathRoot = `${appRoot}/`;
@@ -20,6 +21,7 @@ const {
 console.log(process.env.DB_HOSTNAME)
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 const port = process.env.PORT || 7000;
 
